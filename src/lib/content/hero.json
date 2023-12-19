@@ -1,0 +1,15 @@
+{
+  "label": "Uncover Carpathian’s Secrets",
+  "nav": ["about", "services", "career", "gallery", "contacts"],
+  "desc": "We offer you unforgettable trips to the most beautiful parts of the Carpathians. Enjoy stunning views, exciting expeditions, and the best service!",
+  "places": [
+    "Hoverla",
+    "Yaremche",
+    "Zakarpattia",
+    "Vorokhta",
+    "Synevyr Lake",
+    "Bukovel"
+  ],
+  "journey": "7 Days journey",
+  "btnLabel": "JOIN NOW"
+}
