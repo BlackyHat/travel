@@ -27,13 +27,20 @@ const ContactForm = () => {
     toast.success("Feedback was sended.");
   };
 
+  const variables = {
+    label:
+      "mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white",
+    input:
+      "bg-input-background placeholder:text-input-placeholder mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none",
+    textarea: "resize-none overflow-hidden",
+    error:
+      "alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500",
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="relative">
-        <label
-          className="mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white"
-          htmlFor="fullName"
-        >
+        <label className={variables.label} htmlFor="fullName">
           Full name:
         </label>
         <input
@@ -41,22 +48,16 @@ const ContactForm = () => {
           id="fullName"
           placeholder="Full name..."
           aria-invalid={errors.fullName ? "true" : "false"}
-          className="bg-input-background placeholder:text-input-placeholder mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none placeholder:-ml-2"
+          className={variables.input}
         />
         {errors.fullName && (
-          <p
-            role="alert"
-            className="alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500"
-          >
+          <p role="alert" className={variables.error}>
             {errors.fullName.message}
           </p>
         )}
       </div>
       <div className="relative">
-        <label
-          className="mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white"
-          htmlFor="email"
-        >
+        <label className={variables.label} htmlFor="email">
           E-mail:
         </label>
         <input
@@ -64,23 +65,17 @@ const ContactForm = () => {
           id="email"
           placeholder="E-mail..."
           aria-invalid={errors.email ? "true" : "false"}
-          className="bg-input-background placeholder:text-input-placeholde mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none"
+          className={variables.input}
         />
         {errors.email && (
-          <p
-            role="alert"
-            className="alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500"
-          >
+          <p role="alert" className={variables.error}>
             {errors.email.message}
           </p>
         )}
       </div>
 
       <div className="relative">
-        <label
-          className="mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white"
-          htmlFor="message"
-        >
+        <label className={variables.label} htmlFor="message">
           Message:
         </label>
 
@@ -90,16 +85,8 @@ const ContactForm = () => {
           id="message"
           placeholder=""
           aria-invalid={errors.message ? "true" : "false"}
-          className="bg-input-background placeholder:text-input-placeholder mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none placeholder:-ml-2"
+          className={variables.input + variables.textarea}
         />
-        {errors.message && (
-          <p
-            role="alert"
-            className="alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500"
-          >
-            {errors.message.message}
-          </p>
-        )}
       </div>
 
       <button
