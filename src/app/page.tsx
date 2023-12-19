@@ -1,13 +1,13 @@
-// import Header from "@/components/header";
+import About from "@/components/about";
+import Contacts from "@/components/contacts";
 import Hero from "@/components/hero";
-// import Section from "@/components/section";
-// import heroBg from "@public/images/hero-bg.png";
 
 export default function Home() {
   return (
     <main className="max-w-1600 mx-auto h-screen">
-      <Hero />
-      <Hero />
+      {/* <Hero /> */}
+      {/* <About /> */}
+      <Contacts />
     </main>
   );
 }

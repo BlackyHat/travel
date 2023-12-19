@@ -1,6 +1,6 @@
 {
-  "title": "services",
-  "label": "WE OFFER",
+  "name": "services",
+  "title": "WE OFFER",
   "trips": [
     {
       "title": "ATVs Traveling",

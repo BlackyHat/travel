@@ -16,6 +16,8 @@
 @layer base {
   :root {
     --color-modal-bg: 1 10 5;
+    --color-input-bg: 255 255 255;
+    --color-input-placeholder: 255 255 255;
     --foreground-rgb: 255 255 255;
   }
 }
@@ -47,6 +49,21 @@ body {
   .link:focus {
     background-color: rgba(255, 255, 255, 0.2);
   }
+  .alert::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    background-image: url("/icons/icon-close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   /* .link::before { */
   /* top: 0;
     bottom: 0;

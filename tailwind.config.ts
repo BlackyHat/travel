@@ -21,6 +21,28 @@ const config: Config = {
       },
       backgroundColor: {
         "modal-background": "rgba(var(--color-modal-bg) / .75)",
+        "input-background": "rgba(var(--color-input-bg) / .05)",
+      },
+      color: {
+        "input-placeholder": "rgba(var(--color-input-placeholder) / .2)",
+      },
+      fontSize: {
+        "4xl-accent": [
+          "2.5rem",
+          {
+            lineHeight: "3.5rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "500",
+          },
+        ],
+        "4xl-secondary": [
+          "2.5rem",
+          {
+            lineHeight: "3.5rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "100",
+          },
+        ],
       },
     },
   },

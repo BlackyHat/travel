@@ -10,7 +10,7 @@ const Hero = () => {
   const restOfTitle = label.substring(firstWordTitle.length);
 
   return (
-    <section className=" hero-section container mx-auto pb-14" id="hero">
+    <section className="hero-section container mx-auto pb-14" id="hero">
       <Header />
       <p className="text-right text-[37px]/[45px] font-thin uppercase tracking-[0.05em] first-letter:font-medium">
         <span className="font-medium">{heroBadge[0]}</span>
