@@ -1,16 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+@import "./hero-section.css";
+@import "./services-section.css";
+@import "./choose-us-section.css";
+
+@import "tailwindcss/utilities";
+
+@import "./slick-theme.css";
+@import "./slick.css";
+@import "./gallery-slider.css";
 
 @layer base {
   .font-outline {
     -webkit-text-stroke: 1px rgb(0, 0, 0);
     transition: -webkit-text-stroke 0.3s ease-out;
   }
-  /* .font-outline-2 {
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 1);
-    transition: -webkit-text-stroke 0.3s ease-out;
-  } */
 }
 
 @layer base {
@@ -21,10 +26,36 @@
     --foreground-rgb: 255 255 255;
     --section-bg: linear-gradient(rgba(2, 15, 8, 0.75), rgba(2, 15, 8, 0.75));
   }
+  body {
+    color: rgb(var(--foreground-rgb));
+  }
 }
-body {
-  color: rgb(var(--foreground-rgb));
-}
+
+/* @media screen and (min-width: 768px) {
+  .active {
+    display: block;
+    width: 560px;
+    height: 560px;
+    margin: 0 24px;
+    background: #000;
+  }
+  .next,
+  .prev {
+    display: block;
+    width: 560px;
+    height: 560px;
+    margin: 0 24px;
+    background: #fb0000;
+  }
+} */
+/* @media screen and (min-width: 1280px) {
+  .active {
+  }
+  .next {
+  }
+  .prev {
+  }
+} */
 
 @layer components {
   .activSlideButton::after {
@@ -81,242 +112,8 @@ body {
   .section-wrapper {
     background-image: var(--section-bg);
   }
-  .hero-section {
-    background-image: url("/images/hero-xs.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xs@2x.jpg");
-    }
-
-    @media screen and (min-width: 768px) {
-      background-image: url("/images/hero-md.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-md@2x.jpg");
-      }
-    }
-
-    @media screen and (min-width: 1280px) {
-      background-image: url("/images/hero-xl.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-xl@2x.jpg");
-      }
-    }
-  }
-  /* .slide-1 {
-    background-image: url("/images/hero-xs.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/slide-1-sx@2x.jpg");
-    }
-
-    @media screen and (min-width: 768px) {
-      background-image: url("/images/hero-md.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-md@2x.jpg");
-      }
-    }
-
-    @media screen and (min-width: 1280px) {
-      background-image: url("/images/hero-xl.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-xl@2x.jpg");
-      }
-    }
-  }
-  .slide-2 {
-    background-image: url("/images/slide-2-sx@1x.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/slide-2-sx@2x.png");
-    }
-
-    @media screen and (min-width: 768px) {
-      background-image: url("/images/hero-md.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-md@2x.jpg");
-      }
-    }
-
-    @media screen and (min-width: 1280px) {
-      background-image: url("/images/hero-xl.jpg");
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: url("/images/hero-xl@2x.jpg");
-      }
-    }
-  } */
 }
-.services-slide-1 {
-  background-image: url("/images/slide-1-sx@1x.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url("/images/slide-1-sx@2x.jpg");
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url("/images/hero-md.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-md@2x.jpg");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/images/hero-xl.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xl@2x.jpg");
-    }
-  }
-}
-.services-slide-2 {
-  background-image: url("/images/slide-2-sx@1x.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url("/images/slide-2-sx@2x.jpg");
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url("/images/hero-md.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-md@2x.jpg");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/images/hero-xl.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xl@2x.jpg");
-    }
-  }
-}
-.services-slide-3 {
-  background-image: url("/images/slide-3-sx@1x.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url("/images/slide-3-sx@2x.jpg");
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url("/images/hero-md.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-md@2x.jpg");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/images/hero-xl.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xl@2x.jpg");
-    }
-  }
-}
-.services-slide-4 {
-  background-image: url("/images/slide-4-sx@1x.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url("/images/slide-4-sx@2x.jpg");
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url("/images/hero-md.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-md@2x.jpg");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/images/hero-xl.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xl@2x.jpg");
-    }
-  }
-}
-.services-slide-5 {
-  background-image: url("/images/slide-5-sx@1x.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url("/images/slide-5-sx@2x.jpg");
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url("/images/hero-md.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-md@2x.jpg");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/images/hero-xl.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xl@2x.jpg");
-    }
-  }
-}
 /**
 :root {
   --foreground-rgb: 0, 0, 0;

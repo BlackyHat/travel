@@ -2,24 +2,25 @@
   "name": "career",
   "title": "CHOOSE US",
   "desc": "Your chance to join our passionate team in Carpathian tourism. Seeking talented professionals to share our common mission. ",
-  "badge": "Why us ?",
+  "features_title": "Why us ?",
   "features": [
     {
-      "feature": "Professional development",
-      "desc": "We offer growth opportunities and a creative environment to nurture your talents."
+      "caption": "Professional development",
+      "overview": "We offer growth opportunities and a creative environment to nurture your talents."
     },
     {
-      "feature": "Teamwork",
-      "desc": "Join our close-knit family, where support and inspiration abound."
+      "caption": "Teamwork",
+      "overview": "Join our close-knit family, where support and inspiration abound."
     },
     {
-      "feature": "Stimulating work environment",
-      "desc": "Flexibility and remote options for a comfortable experience."
+      "caption": "Stimulating work environment",
+      "overview": "Flexibility and remote options for a comfortable experience."
     },
     {
-      "feature": "Exciting challenges",
-      "desc": "Unleash your potential through unforgettable projects showcasing Carpathian beauty."
+      "caption": "Exciting challenges",
+      "overview": "Unleash your potential through unforgettable projects showcasing Carpathian beauty."
     }
   ],
-  "formTitle": "Don't miss your opportunity! Fill out the form right now and join our team!"
+  "formTitle": "Don't miss your opportunity! Fill out the form right now and join our team!",
+  "formAgree":"I confirm my consent to the processing of personal data."
 }

@@ -1,1 +1,10 @@
-{ "name": "gallery", "title": "OUR GALLERY" }
+{
+  "name": "gallery",
+  "title": "OUR GALLERY",
+  "slides": [
+    "high-angle-shot-beautiful-mountainous-landscape-with-hills-cloudy-sky",
+    "breathtaking-view-lake-high-carpathian-mountains",
+    "breathtaking-view-lake-high-carpathian-mountains",
+    "beautiful-mountainous-landscape-with-forest-hills"
+  ]
+}

@@ -10,8 +10,17 @@ const Services = () => {
   const { title, trips } = content;
   const [firstWordTitle, restOfTitle] = splitString(title, 1);
 
+  const variants = [
+    "services-slide-1",
+    "services-slide-2",
+    "services-slide-3",
+    "services-slide-4",
+    "services-slide-5",
+  ];
+  const formattedNumber = (num: number) => String(num).padStart(2, "0");
+
   return (
-    <section id="services" className={`services-slide-${currentSlide + 1}`}>
+    <section id="services" className={variants[currentSlide]}>
       <div className="section-wrapper">
         <div className="container mx-auto py-14">
           <h2 className="text-4xl-secondary mb-2">
@@ -19,7 +28,8 @@ const Services = () => {
             <span className="text-4xl-accent">{restOfTitle}</span>
           </h2>
           <p className="mb-4 text-right text-[43px]/[52px] font-extralight">
-            {currentSlide + 1}/<span className="font-thin">{trips.length}</span>
+            {formattedNumber(currentSlide + 1)}/
+            <span className="font-thin">{formattedNumber(trips.length)}</span>
           </p>
           <div className="relative mb-3 h-[213px] w-full">
             <Image
