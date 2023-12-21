@@ -1,15 +1,16 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "react-hot-toast";
 import content from "@/lib/content/career.json";
+import { PatternFormat } from "react-number-format";
 
 const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
   email: z.string().email().min(5, { message: "Incorrect email" }).trim(),
   position: z.string().min(5, { message: "Incorrect position" }).trim(),
-  phone: z.string().min(5, { message: "Incorrect phone" }).trim(),
+  phone: z.string().min(20, { message: "Incorrect phone" }),
   message: z.string().trim().optional(),
   isAgree: z.boolean(),
 });
@@ -22,6 +23,7 @@ const CareerForm = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm<CareerFormValues>({
     resolver: zodResolver(formSchema),
@@ -106,13 +108,21 @@ const CareerForm = () => {
           <label className={variables.label} htmlFor="phone">
             Phone:
           </label>
-          <input
-            {...register("phone")}
-            id="phone"
-            placeholder="Phone..."
-            aria-invalid={errors.phone ? "true" : "false"}
-            className={variables.input}
+          <Controller
+            render={({ field }) => (
+              <PatternFormat
+                id="phone"
+                aria-invalid={errors.phone ? "true" : "false"}
+                className={variables.input}
+                placeholder="+ 38 (097) 12 34 567"
+                format="+ 38 (###) ### ## ##"
+                {...field}
+              />
+            )}
+            name="phone"
+            control={control}
           />
+
           {errors.phone && (
             <p role="alert" className={variables.error}>
               {errors.phone.message}
