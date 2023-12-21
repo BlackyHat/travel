@@ -13,14 +13,14 @@ const About = () => {
   return (
     <section
       id="about"
-      className="about-section font-normalfont-normal mx-auto text-sm md:text-base/5 xl:text-lg/6"
+      className="about-section mx-auto text-sm md:text-base/5 xl:text-lg/6"
     >
       <div className="section-wrapper">
-        <div className="container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] xl:max-w-7xl xl:py-[104px]">
+        <div className="container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:py-16 xl:max-w-7xl xl:py-[104px]">
           <div className="md:grid-cols-hero xl:grid-cols-hero-xl md:grid md:gap-4 md:max-xl:mb-16 xl:mb-[72px] xl:w-[922px]">
-            <h2 className="text-4xl-secondary md:text-5xl-secondary  xl:md:text-6xl-secondary mb-2">
+            <h2 className="text-4xl-secondary md:text-5xl-secondary xl:text-6xl-secondary mb-2">
               {firstWordTitle}
-              <span className="text-4xl-accent  md:text-5xl-accent xl:md:text-6xl-accent">
+              <span className="text-4xl-accent md:text-5xl-accent xl:text-6xl-accent">
                 {restOfTitle}
               </span>
             </h2>

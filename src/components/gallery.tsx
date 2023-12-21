@@ -23,7 +23,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-/**
- * sizes img
- * (min-width: 768px) 100vw, (max-width: 427px) min(100%, 387px), (max-height: 756px) min(100%, 387px), (min-aspect-ratio: 4672/7008) calc((calc(100vh - 175px)) * 0.666667), calc(100vw - 40px)
- */
