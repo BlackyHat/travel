@@ -1,6 +1,6 @@
 @layer components {
-  .hero-section {
-    background-image: url("/images/hero-xs@1x.jpg");
+  .about-section {
+    background-image: url("/images/about-xs@1x.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,24 +8,24 @@
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url("/images/hero-xs@2x.jpg");
+      background-image: url("/images/about-xs@2x.jpg");
     }
 
     @media screen and (min-width: 768px) {
-      background-image: url("/images/hero-md@1x.jpg");
+      background-image: url("/images/about-md@1x.jpg");
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: url("/images/hero-md@2x.jpg");
+        background-image: url("/images/about-md@2x.jpg");
       }
     }
 
     @media screen and (min-width: 1280px) {
-      background-image: url("/images/hero-xl@1x.jpg");
+      background-image: url("/images/about-xl@1x.jpg");
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: url("/images/hero-xl@2x.jpg");
+        background-image: url("/images/about-xl@2x.jpg");
       }
     }
   }
