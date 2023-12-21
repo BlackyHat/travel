@@ -10,11 +10,15 @@ const config: Config = {
     container: {
       padding: {
         DEFAULT: "20px",
-        md: "64px",
-        xl: "80px",
+        md: "32px",
+        xl: "24px",
       },
     },
     extend: {
+      gridTemplateColumns: {
+        hero: "1fr 230px",
+        "hero-xl": "1fr 294px",
+      },
       backgroundImage: {
         "gradient-section":
           "linear-gradient(rgba(0, 24, 38, 1), rgba(0, 37, 49, 0))",
@@ -39,6 +43,38 @@ const config: Config = {
           "2.5rem",
           {
             lineHeight: "3.5rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "100",
+          },
+        ],
+        "5xl-accent": [
+          "4.25rem",
+          {
+            lineHeight: "5.125rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "500",
+          },
+        ],
+        "5xl-secondary": [
+          "4.25rem",
+          {
+            lineHeight: "5.125rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "100",
+          },
+        ],
+        "6xl-accent": [
+          "6.125rem",
+          {
+            lineHeight: "7.375rem",
+            letterSpacing: "-0.04em",
+            fontWeight: "500",
+          },
+        ],
+        "6xl-secondary": [
+          "6.125rem",
+          {
+            lineHeight: "7.375rem",
             letterSpacing: "-0.04em",
             fontWeight: "100",
           },

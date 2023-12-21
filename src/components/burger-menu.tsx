@@ -3,7 +3,6 @@ import { FC, useState } from "react";
 import Modal from "@/components/ui/modal";
 
 interface BurgerMenuProps {
-  // onClose: () => void;
   navElements: string[];
 }
 const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
@@ -23,7 +22,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
     <>
       <button
         onClick={onOpen}
-        className="p-2 text-sm font-normal uppercase tracking-[1.4px] text-white md:hidden"
+        className="text-sm font-normal uppercase tracking-[1.4px] text-white md:hidden"
       >
         menu
       </button>

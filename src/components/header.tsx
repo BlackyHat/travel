@@ -5,13 +5,13 @@ import BurgerMenu from "./burger-menu";
 
 export default function Header() {
   return (
-    <header className="flex justify-between py-8 align-middle">
+    <header className="flex items-center justify-between pt-9 md:pt-6 xl:pt-8">
       <Link href="/" className="p-2">
         <LogoIcon aria-label="Logo Carpatian Travel" width={62} height={32} />
       </Link>
       <BurgerMenu navElements={content.nav} />
       <nav className="hidden md:block">
-        <ul className="flex justify-center gap-6 align-middle">
+        <ul className="flex items-center justify-center gap-4 xl:gap-x-12">
           {content.nav.map((el) => (
             <li key={el}>
               <a
