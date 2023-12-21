@@ -1,0 +1,32 @@
+@layer components {
+  .career-section {
+    background-image: url("/images/career-xs@1x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url("/images/career-xs@2x.jpg");
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: url("/images/career-md@1x.jpg");
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url("/images/career-md@2x.jpg");
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: url("/images/career-xl@1x.jpg");
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url("/images/career-xl@2x.jpg");
+      }
+    }
+  }
+}

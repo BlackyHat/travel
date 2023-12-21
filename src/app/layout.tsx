@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "CarpTravel",
   description:
     "Uncover beautiful parts of the Carpathians with unforgettable trips",
+  openGraph: {
+    type: "website",
+    title: "CarpTravel",
+    description:
+      "Uncover beautiful parts of the Carpathians with unforgettable trips",
+    siteName: "CarpTravel",
+    images: [{ url: "/public/images/og-image.jpg" }],
+  },
   icons: {
     icon: [
       {

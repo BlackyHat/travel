@@ -18,7 +18,6 @@ const config: Config = {
       gridTemplateColumns: {
         hero: "1fr 230px",
         "hero-xl": "1fr 294px",
-        "section-xl": "50% repeat(1, 1fr)",
       },
       backgroundImage: {
         "gradient-section":

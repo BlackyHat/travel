@@ -1,6 +1,6 @@
 @layer components {
-  .choose-us-section {
-    background-image: url("/images/choose-us-xs@1x.jpg");
+  .contacts-section {
+    background-image: url("/images/contacts-xs@1x.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,24 +8,24 @@
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url("/images/choose-us-xs@2x.jpg");
+      background-image: url("/images/contacts-xs@2x.jpg");
     }
 
     @media screen and (min-width: 768px) {
-      background-image: url("/images/hero-md.jpg");
+      background-image: url("/images/contacts-md@1x.jpg");
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: url("/images/hero-md@2x.jpg");
+        background-image: url("/images/contacts-md@2x.jpg");
       }
     }
 
     @media screen and (min-width: 1280px) {
-      background-image: url("/images/hero-xl.jpg");
+      background-image: url("/images/contacts-xl@1x.jpg");
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: url("/images/hero-xl@2x.jpg");
+        background-image: url("/images/contacts-xl@2x.jpg");
       }
     }
   }
