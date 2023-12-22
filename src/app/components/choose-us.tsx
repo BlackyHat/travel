@@ -1,11 +1,11 @@
 import React from "react";
-import CareerForm from "./ui/career-form";
+import CareerForm from "@/components/ui/career-form";
 
 const ChooseUs = () => {
   return (
-    <section id="services" className="choose-us-section">
+    <section id="career-form" className="career-section md:hidden">
       <div className="section-wrapper">
-        <div className="container mx-auto py-14">
+        <div className="container mx-auto max-w-[480px] py-14">
           <CareerForm />
         </div>
       </div>

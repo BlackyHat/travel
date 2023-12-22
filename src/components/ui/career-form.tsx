@@ -5,6 +5,7 @@ import * as z from "zod";
 import { toast } from "react-hot-toast";
 import content from "@/lib/content/career.json";
 import { PatternFormat } from "react-number-format";
+import { twMerge } from "tailwind-merge";
 
 const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
@@ -12,7 +13,10 @@ const formSchema = z.object({
   position: z.string().min(5, { message: "Incorrect position" }).trim(),
   phone: z.string().min(20, { message: "Incorrect phone" }),
   message: z.string().trim().optional(),
-  isAgree: z.boolean(),
+  isConfirm: z.string({
+    required_error: "Confirm is required",
+    invalid_type_error: "Confirm must be a applied",
+  }),
 });
 type CareerFormValues = z.infer<typeof formSchema>;
 
@@ -37,22 +41,32 @@ const CareerForm = () => {
 
   const variables = {
     label:
-      "mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white",
+      "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none",
-    textarea: "resize-none overflow-hidden mb-4",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-[13px]/6 font-extralight text-white outline-none",
+    textarea:
+      "bg-input-background placeholder:text-input-placeholder md:h-full block w-full border-0 px-2 text-xs/6 font-extralight text-white outline-none resize-none overflow-hidden max-md:mb-4",
     error:
-      "alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500",
+      "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };
 
   return (
     <>
-      <p className="mb-6 ml-24 w-[180px] text-left text-sm font-extralight">
-        {formTitle}
-      </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-4"
+      >
+        <p className="ml-auto mr-0 w-[64%] text-left text-sm font-extralight max-md:mb-6 md:col-span-2 md:ml-0 md:w-[50%] md:text-[13px]/5 md:max-xl:pr-14 md:max-xl:pt-[92px] xl:pr-14 xl:text-lg/6">
+          {formTitle}
+        </p>
         <div className="relative">
-          <label className={variables.label} htmlFor="fullName">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.fullName ? "text-rose-500" : "",
+            )}
+            htmlFor="fullName"
+          >
             Full name:
           </label>
           <input
@@ -69,7 +83,13 @@ const CareerForm = () => {
           )}
         </div>
         <div className="relative">
-          <label className={variables.label} htmlFor="email">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.email ? "text-rose-500" : "",
+            )}
+            htmlFor="email"
+          >
             E-mail:
           </label>
           <input
@@ -87,13 +107,19 @@ const CareerForm = () => {
         </div>
 
         <div className="relative">
-          <label className={variables.label} htmlFor="position">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.position ? "text-rose-500" : "",
+            )}
+            htmlFor="position"
+          >
             Position:
           </label>
           <input
             {...register("position")}
             id="position"
-            placeholder="Position..."
+            placeholder="Movie maker..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
           />
@@ -105,7 +131,13 @@ const CareerForm = () => {
         </div>
 
         <div className="relative">
-          <label className={variables.label} htmlFor="phone">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.phone ? "text-rose-500" : "",
+            )}
+            htmlFor="phone"
+          >
             Phone:
           </label>
           <Controller
@@ -130,7 +162,7 @@ const CareerForm = () => {
           )}
         </div>
 
-        <div className="relative">
+        <div className="relative overflow-hidden md:order-4 md:col-start-2 md:row-span-4 md:row-start-2 md:h-full">
           <label className={variables.label} htmlFor="message">
             Message:
           </label>
@@ -141,36 +173,37 @@ const CareerForm = () => {
             id="message"
             placeholder=""
             aria-invalid={errors.message ? "true" : "false"}
-            className={variables.input + variables.textarea}
+            className={variables.textarea}
           />
         </div>
 
         <div className="relative flex items-start gap-x-2">
           <input
-            {...register("isAgree")}
             type="checkbox"
-            aria-invalid={errors.isAgree ? "true" : "false"}
-            className={(variables.input, "w-[22px]")}
+            {...register("isConfirm")}
+            id="isConfirm"
+            defaultValue="false"
+            aria-invalid={errors.isConfirm ? "true" : "false"}
+            className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 md:self-start xl:h-6 xl:w-6"
           />
-          <p className="text-left text-xs/[22px] font-extralight">
+
+          <label
+            className="text-left text-xs/[22px] font-extralight"
+            htmlFor="isConfirm"
+          >
             {formAgree}
-          </p>
-          {errors.isAgree && (
+          </label>
+          {errors.isConfirm && (
             <p role="alert" className={variables.error}>
-              {errors.isAgree.message}
+              {errors.isConfirm.message}
             </p>
           )}
         </div>
-        {/* <Controller
-        name="isAgree"
-        control={control}
-        rules={{ required: true }}
-        render={({ field }) => <Checkbox {...field} />}
-      /> */}
+
         <button
           type="submit"
           disabled={!errors}
-          className="ml-auto mr-0 block text-3xl font-medium uppercase text-white"
+          className="ml-auto mr-0 block text-3xl font-medium uppercase text-white xl:text-[32px]/[38px]"
         >
           Send
         </button>
