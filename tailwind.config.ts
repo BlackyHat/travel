@@ -18,6 +18,11 @@ const config: Config = {
       gridTemplateColumns: {
         hero: "1fr 230px",
         "hero-xl": "1fr 294px",
+        contacts: "1fr 31.25%",
+        "contacts-reverse": "31.25% 1fr",
+      },
+      gridTemplateRows: {
+        "contacts-xl": "25% 25% 1fr",
       },
       backgroundImage: {
         "gradient-section":

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "CarpTravel",
   description:
     "Uncover beautiful parts of the Carpathians with unforgettable trips",
+  metadataBase: new URL("http://localhost"),
   openGraph: {
     type: "website",
     title: "CarpTravel",

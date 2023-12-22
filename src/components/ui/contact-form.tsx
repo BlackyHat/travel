@@ -31,62 +31,65 @@ const ContactForm = () => {
     label:
       "mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder mb-6 block w-full border-0 px-2 text-xl/[24px] font-extralight text-white outline-none",
-    textarea: "resize-none overflow-hidden",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-xl/6 font-extralight text-white outline-none",
+    textarea:
+      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-xl/6 font-extralight text-white outline-none mb-4 xl:mb-6",
     error:
-      "alert absolute -bottom-6 right-0 text-xs/[24px] font-extralight tracking-widest text-rose-500",
+      "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="relative">
-        <label className={variables.label} htmlFor="fullName">
-          Full name:
-        </label>
-        <input
-          {...register("fullName")}
-          id="fullName"
-          placeholder="Full name..."
-          aria-invalid={errors.fullName ? "true" : "false"}
-          className={variables.input}
-        />
-        {errors.fullName && (
-          <p role="alert" className={variables.error}>
-            {errors.fullName.message}
-          </p>
-        )}
-      </div>
-      <div className="relative">
-        <label className={variables.label} htmlFor="email">
-          E-mail:
-        </label>
-        <input
-          {...register("email")}
-          id="email"
-          placeholder="E-mail..."
-          aria-invalid={errors.email ? "true" : "false"}
-          className={variables.input}
-        />
-        {errors.email && (
-          <p role="alert" className={variables.error}>
-            {errors.email.message}
-          </p>
-        )}
-      </div>
+      <div className="md:grid-cols-contacts-reverse md:grid md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
+        <div className="relative">
+          <label className={variables.label} htmlFor="fullName">
+            Full name:
+          </label>
+          <input
+            {...register("fullName")}
+            id="fullName"
+            placeholder="Full name..."
+            aria-invalid={errors.fullName ? "true" : "false"}
+            className={variables.input}
+          />
+          {errors.fullName && (
+            <p role="alert" className={variables.error}>
+              {errors.fullName.message}
+            </p>
+          )}
+        </div>
+        <div className="relative md:max-xl:order-last">
+          <label className={variables.label} htmlFor="email">
+            E-mail:
+          </label>
+          <input
+            {...register("email")}
+            id="email"
+            placeholder="E-mail..."
+            aria-invalid={errors.email ? "true" : "false"}
+            className={variables.input}
+          />
+          {errors.email && (
+            <p role="alert" className={variables.error}>
+              {errors.email.message}
+            </p>
+          )}
+        </div>
 
-      <div className="relative">
-        <label className={variables.label} htmlFor="message">
-          Message:
-        </label>
+        <div className="relative md:max-xl:row-span-3 xl:col-span-2">
+          <label className={variables.label} htmlFor="message">
+            Message:
+          </label>
 
-        <textarea
-          {...register("message")}
-          rows={8}
-          id="message"
-          placeholder=""
-          aria-invalid={errors.message ? "true" : "false"}
-          className={variables.input + variables.textarea}
-        />
+          <textarea
+            {...register("message")}
+            rows={8}
+            id="message"
+            placeholder=""
+            aria-invalid={errors.message ? "true" : "false"}
+            className={variables.textarea}
+          />
+        </div>
       </div>
 
       <button
