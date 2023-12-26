@@ -5,6 +5,7 @@
 @import "./about-section.css";
 @import "./services-section.css";
 @import "./career-section.css";
+@import "./gallery-section.css";
 @import "./contacts-section.css";
 
 @import "tailwindcss/utilities";

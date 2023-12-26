@@ -1,69 +1,53 @@
 "use client";
-import { Children, useState, useRef, useEffect } from "react";
-import content from "@/lib/content/gallery.json";
-
 import Image from "next/image";
-import { twMerge } from "tailwind-merge";
+import Slider from "react-slick";
+import content from "@/lib/content/gallery.json";
+import SliderArrow from "./slider-arrow";
 
 const GallerySlider = () => {
   const { slides } = content;
-  const [currentSlide, setCurrentSlide] = useState(1);
 
-  const nextSlideIdx = (idx: number) => {
-    return slides.length - 1 === idx ? 0 : idx + 1;
-  };
-  const prevSlideIdx = (idx: number) => {
-    return idx === 0 ? slides.length - 1 : idx - 1;
-  };
-
-  const next = () => {
-    const next = nextSlideIdx(currentSlide);
-    setCurrentSlide(next);
-  };
-
-  const previous = () => {
-    const previous = prevSlideIdx(currentSlide);
-    setCurrentSlide(previous);
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "0",
+    slidesToShow: 3,
+    speed: 500,
+    arrows: true,
+    dots: false,
+    nextArrow: <SliderArrow type="next" />,
+    prevArrow: <SliderArrow type="prev" />,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          vertical: true,
+          verticalSwiping: true,
+        },
+      },
+    ],
   };
 
   return (
     <>
-      <div className="hidden md:block">
-        <ul className="flex flex-col gap-6 md:flex-row">
-          <li>
-            <button type="button" className="" onClick={previous}>
-              PREV
-            </button>
-          </li>
-          <li>
-            <button type="button" className="" onClick={next}>
-              next
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <ul className="flex flex-col gap-6 md:flex-row">
-        {slides.map((slide, idx) => (
-          <li key={slide}>
-            <div
-              className={twMerge(
-                "relative h-full w-full",
-                `${currentSlide === idx ? "active" : ""}`,
-                `${nextSlideIdx(idx) === idx ? "next" : ""}`,
-                `${prevSlideIdx(idx) === idx ? "prev" : ""}`,
-              )}
-            >
-              <Image
-                src={`/images/${slide}.jpg`}
-                alt={slide}
-                fill
-                sizes="(max-width: 480px) 100vw, (max-width: 767px) 440px, (max-width: 1279px) 458px,  (max-width: 1279px) 448px"
-              />
-            </div>
-          </li>
+      <Slider {...settings}>
+        {slides.map((slide) => (
+          <div key={slide} className="slide relative h-full w-full">
+            <Image
+              key={slide}
+              src={`/images/${slide}.webp`}
+              alt={slide}
+              sizes="(max-width: 767px) 100vw, (min-width: 768px) 60vw, (min-width: 1280px) 608px"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         ))}
-      </ul>
+      </Slider>
     </>
   );
 };
