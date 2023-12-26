@@ -27,6 +27,7 @@ const GallerySlider = () => {
           initialSlide: 0,
           vertical: true,
           verticalSwiping: true,
+          arrows: false,
         },
       },
     ],

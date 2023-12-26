@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "react-hot-toast";
+import { twMerge } from "tailwind-merge";
 
 const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
@@ -29,11 +30,11 @@ const ContactForm = () => {
 
   const variables = {
     label:
-      "mb-3 block text-xs font-extralight leading-normal tracking-[0.2em] text-white",
+      "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-xl/6 font-extralight text-white outline-none",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-[13px]/6 font-extralight text-white outline-none",
     textarea:
-      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-xl/6 font-extralight text-white outline-none mb-4 xl:mb-6",
+      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-xs/6 font-extralight text-white outline-none mb-4 xl:mb-6",
     error:
       "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };
@@ -42,7 +43,13 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="md:grid-cols-contacts-reverse md:grid md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
         <div className="relative">
-          <label className={variables.label} htmlFor="fullName">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.fullName ? "text-rose-500" : "",
+            )}
+            htmlFor="fullName"
+          >
             Full name:
           </label>
           <input
@@ -59,7 +66,13 @@ const ContactForm = () => {
           )}
         </div>
         <div className="relative md:max-xl:order-last">
-          <label className={variables.label} htmlFor="email">
+          <label
+            className={twMerge(
+              variables.label,
+              errors.email ? "text-rose-500" : "",
+            )}
+            htmlFor="email"
+          >
             E-mail:
           </label>
           <input

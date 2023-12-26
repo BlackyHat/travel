@@ -1,6 +1,7 @@
 "use client";
 import { FC, useState } from "react";
 import Modal from "@/components/ui/modal";
+import ScrollLink from "@/components/ui/scroll-link";
 
 interface BurgerMenuProps {
   navElements: string[];
@@ -40,14 +41,14 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
             <ul className="flex flex-col items-center justify-center gap-12">
               {navElements.map((el) => (
                 <li key={el}>
-                  <a
+                  <ScrollLink
                     href={`#${el}`}
                     className="text-decoration p-1 text-lg/[22px] font-normal capitalize tracking-widest"
                     title={`Navigate to ${el}-section`}
                     onClick={onClose}
                   >
                     {el}
-                  </a>
+                  </ScrollLink>
                 </li>
               ))}
             </ul>

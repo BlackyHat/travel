@@ -2,23 +2,31 @@ import { FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface SectionProps {
+  id: string;
   children: ReactNode;
   className?: string;
-  containerClassName?: string;
+  containerStyles?: string;
 }
 
 const Section: FC<SectionProps> = ({
+  id,
   className,
-  containerClassName,
+  containerStyles,
   children,
 }) => {
   return (
-    <section className={twMerge("relative overflow-hidden", className)}>
+    <section
+      id={id}
+      className={twMerge(
+        "mx-auto text-sm md:text-base/5 xl:text-lg/6",
+        className,
+      )}
+    >
       <div className="section-wrapper">
         <div
           className={twMerge(
             "container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:py-16 xl:max-w-7xl xl:py-[104px]",
-            containerClassName,
+            containerStyles,
           )}
         >
           {children}
