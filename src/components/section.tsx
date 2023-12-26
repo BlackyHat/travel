@@ -25,7 +25,7 @@ const Section: FC<SectionProps> = ({
       <div className="section-wrapper">
         <div
           className={twMerge(
-            "container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:py-16 xl:max-w-7xl xl:py-[104px]",
+            "container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:py-16 xl:max-w-[1440px] xl:py-[104px]",
             containerStyles,
           )}
         >

@@ -38,14 +38,14 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
             close
           </button>
           <nav>
-            <ul className="flex flex-col items-center justify-center gap-12">
+            <ul className="flex flex-col items-center justify-center gap-3">
               {navElements.map((el) => (
                 <li key={el}>
                   <ScrollLink
                     href={`#${el}`}
                     className="text-decoration p-1 text-lg/[22px] font-normal capitalize tracking-widest"
                     title={`Navigate to ${el}-section`}
-                    onClick={onClose}
+                    onClose={onClose}
                   >
                     {el}
                   </ScrollLink>

@@ -13,12 +13,12 @@ export default function Header() {
       </Link>
       <BurgerMenu navElements={content.nav} />
       <nav className="hidden md:block">
-        <ul className="flex items-center justify-center gap-4 xl:gap-x-12">
+        <ul className="flex items-center justify-center gap-4 xl:gap-3">
           {content.nav.map((el) => (
             <li key={el}>
               <ScrollLink
                 href={`#${el}`}
-                className="text-decoration p-1 text-sm/[17px] font-normal capitalize tracking-widest"
+                className="text-decoration text-sm/[17px] font-normal capitalize tracking-widest"
                 title={`Navigate to ${el}-section`}
               >
                 {el}

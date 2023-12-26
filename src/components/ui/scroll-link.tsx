@@ -7,13 +7,16 @@ type AnchorProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
   keyof LinkProps
 >;
-type ScrollLinkProps = AnchorProps & LinkProps & PropsWithChildren;
+type ScrollLinkProps = AnchorProps &
+  LinkProps &
+  PropsWithChildren & { onClose?: () => void };
 
 const ScrollLink = ({ children, ...props }: ScrollLinkProps) => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     const targetId = e.currentTarget.href.replace(/.*\#/, "");
     const elem = document.getElementById(targetId);
+    props.onClose && props.onClose();
     window.scrollTo({
       top: elem?.getBoundingClientRect().top,
       behavior: "smooth",

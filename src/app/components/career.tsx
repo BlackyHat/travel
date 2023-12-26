@@ -10,7 +10,7 @@ const Career = () => {
 
   return (
     <Section
-      id="services"
+      id="career"
       className="career-section"
       containerStyles="md:grid-cols-3 md:gap-5 xl:grid-cols-4 xl:gap-6"
     >
