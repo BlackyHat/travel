@@ -1,28 +1,30 @@
 import { FC, ReactNode } from "react";
-import Image, { StaticImageData } from "next/image";
+import { twMerge } from "tailwind-merge";
 
 interface SectionProps {
   children: ReactNode;
-  imagePath: StaticImageData;
+  className?: string;
+  containerClassName?: string;
 }
 
-const Section: FC<SectionProps> = ({ children, imagePath }) => {
+const Section: FC<SectionProps> = ({
+  className,
+  containerClassName,
+  children,
+}) => {
   return (
-    <section className="relative overflow-hidden ">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={imagePath}
-          layout="fill"
-          objectFit="cover"
-          alt="Background Image"
-          priority
-        />
-      </div>
-      <div className="relative z-10 h-screen px-5 py-14 bg-gradient-section">
-        {children}
+    <section className={twMerge("relative overflow-hidden", className)}>
+      <div className="section-wrapper">
+        <div
+          className={twMerge(
+            "container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:py-16 xl:max-w-7xl xl:py-[104px]",
+            containerClassName,
+          )}
+        >
+          {children}
+        </div>
       </div>
     </section>
   );
 };
-
 export default Section;

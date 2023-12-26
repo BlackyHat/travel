@@ -94,7 +94,7 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="ml-auto mr-0 block text-3xl font-medium uppercase text-white"
+        className="text-decoration ml-auto mr-0 block text-3xl font-medium uppercase text-white"
       >
         Send
       </button>

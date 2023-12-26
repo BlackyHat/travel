@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Carpatian's Trips SPA 📚 🖥️ 👨‍💻
 
-## Getting Started
+### [GO TO LIVE DEMO PAGE HERE ]() 👀
 
-First, run the development server:
+Carpatian's Trips is single page application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Project structure:
+
+- Header;
+- Hero;
+- About;
+- Services;
+- Services;
+- Gallery;
+- Contacts;
+
+##
+
+![Hero section](assets/11.png) ![Services section](assets/22.png)
+![Services section](assets/33.png) ![Contacts section](assets/44.png)
+
+##
+
+![image](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![image](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![image](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![image](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+
+## Installation and Usage ⚙️ 🚀 📅 💻
+
+To get start application, follow these steps:
+
+1.  Clone this repository to your local machine.
+2.  Open the terminal and navigate to the project directory.
+3.  Run the following commands:
+
+```
+# npm package manager
+npm install
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy the repository to yourself
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+git clone https://github.com/BlackyHat/travel.git
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## The web application using the following technologies and libraries: ⚙️ 🚧 🖥️
 
-## Learn More
+- JavaScript,
+- TypeScript,
+- React.js,
+- Next.js,
+- Tailwind.css,
+- React Hook Form,
+- Zod,
+- React-slick,
+- React-number-format,
+- React-hot-toast
 
-To learn more about Next.js, take a look at the following resources:
+## Stay in touch 🤠 💼 🕔 🏁
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Author - [Oleksandr Podoliako](https://github.com/BlackyHat)
+- Linkedin - [http://linkedin.com/in/oleksandr-vp](http://linkedin.com/in/oleksandr-vp)
+- Telegram - [@blackhatty](https://t.me/blackhatty)

@@ -29,6 +29,7 @@ const Services = () => {
     >
       <div className="section-wrapper">
         <div className="container mx-auto max-w-[480px] py-14 md:max-w-[960px] md:py-16 xl:max-w-7xl xl:py-[104px]">
+          
           <div className="md:grid-cols-hero md:mb-9 md:grid xl:grid-cols-2 xl:gap-1 ">
             <h2 className="text-4xl-secondary md:text-5xl-secondary xl:text-6xl-secondary max-md:mb-6">
               {firstWordTitle}

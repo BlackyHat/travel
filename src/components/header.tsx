@@ -1,7 +1,9 @@
-import LogoIcon from "@public/icons/logo.svg";
 import Link from "next/link";
+import LogoIcon from "@public/icons/logo.svg";
 import content from "@/lib/content/hero.json";
-import BurgerMenu from "./burger-menu";
+
+import BurgerMenu from "@/components/burger-menu";
+import ScrollLink from "@/components/ui/scroll-link";
 
 export default function Header() {
   return (
@@ -14,13 +16,13 @@ export default function Header() {
         <ul className="flex items-center justify-center gap-4 xl:gap-x-12">
           {content.nav.map((el) => (
             <li key={el}>
-              <a
+              <ScrollLink
                 href={`#${el}`}
-                className="hover:font-outline focus:font-outline active:font-outline duration-250 p-1 text-sm/[17px] font-normal capitalize tracking-widest"
+                className="text-decoration p-1 text-sm/[17px] font-normal capitalize tracking-widest"
                 title={`Navigate to ${el}-section`}
               >
                 {el}
-              </a>
+              </ScrollLink>
             </li>
           ))}
         </ul>

@@ -4,7 +4,7 @@ import { splitString } from "@/lib/splitString";
 import ContactForm from "../../components/ui/contact-form";
 
 const Contacts = () => {
-  const { title, addresses, phones, emails, socials } = content;
+  const { title, phones, emails, socials } = content;
   const [firstWordTitle, restOfTitle] = splitString(title, 1);
 
   return (
@@ -26,10 +26,7 @@ const Contacts = () => {
                 <ul>
                   {phones.contacts.map((contact) => (
                     <li key={contact} className="text-right">
-                      <a
-                        className="transition-opacity hover:opacity-70"
-                        href={`tel:${contact}`}
-                      >
+                      <a className="text-decoration" href={`tel:${contact}`}>
                         {contact}
                       </a>
                     </li>
@@ -43,10 +40,7 @@ const Contacts = () => {
                 <ul>
                   {emails.contacts.map((contact) => (
                     <li key={contact} className="text-right">
-                      <a
-                        className="transition-opacity hover:opacity-70"
-                        href={`mailto:${contact}`}
-                      >
+                      <a className="text-decoration" href={`mailto:${contact}`}>
                         {contact}
                       </a>
                     </li>
@@ -63,10 +57,7 @@ const Contacts = () => {
                 <ul>
                   {socials.contacts.map(({ name, link }) => (
                     <li key={name} className="text-left xl:text-right">
-                      <a
-                        className="transition-opacity hover:opacity-70"
-                        href={link}
-                      >
+                      <a className="text-decoration" href={link}>
                         {name}
                       </a>
                     </li>

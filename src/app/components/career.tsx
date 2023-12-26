@@ -14,7 +14,7 @@ const Career = () => {
       className="career-section text-sm md:text-base/5 xl:text-lg/6"
     >
       <div className="section-wrapper">
-        <div className="container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:grid-cols-3 md:gap-5 md:py-16 xl:mb-6 xl:max-w-7xl xl:grid-cols-4 xl:gap-6 xl:py-[104px]">
+        <div className="container mx-auto max-w-[480px] py-14 md:grid md:max-w-[960px] md:grid-cols-3 md:gap-5 md:py-16 xl:max-w-7xl xl:grid-cols-4 xl:gap-6 xl:py-[104px]">
           <h2 className="text-4xl-secondary md:text-5xl-secondary xl:text-6xl-secondary mb-2 md:col-span-2 xl:col-span-3">
             {firstWordTitle}
             <span className="text-4xl-accent md:text-5xl-accent xl:text-6xl-accent">

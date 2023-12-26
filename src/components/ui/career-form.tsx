@@ -11,13 +11,14 @@ const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
   email: z.string().email().min(5, { message: "Incorrect email" }).trim(),
   position: z.string().min(5, { message: "Incorrect position" }).trim(),
-  phone: z.string().min(20, { message: "Incorrect phone" }),
+  phone: z.string().min(20, { message: "Incorrect phone" }).trim(),
   message: z.string().trim().optional(),
   isConfirm: z.string({
     required_error: "Confirm is required",
     invalid_type_error: "Confirm must be a applied",
   }),
 });
+
 type CareerFormValues = z.infer<typeof formSchema>;
 
 const CareerForm = () => {
@@ -28,15 +29,20 @@ const CareerForm = () => {
     handleSubmit,
     reset,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<CareerFormValues>({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = (data: CareerFormValues) => {
-    localStorage.setItem("career-form", JSON.stringify(data));
-    reset();
-    toast.success("Thank you. We will contact you.");
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        localStorage.setItem("career-form", JSON.stringify(data));
+        toast.success("Thank you. We will contact you.");
+        reset();
+        resolve();
+      }, 1000);
+    });
   };
 
   const variables = {
@@ -141,6 +147,9 @@ const CareerForm = () => {
             Phone:
           </label>
           <Controller
+            name="phone"
+            control={control}
+            defaultValue=""
             render={({ field }) => (
               <PatternFormat
                 id="phone"
@@ -148,11 +157,12 @@ const CareerForm = () => {
                 className={variables.input}
                 placeholder="+ 38 (097) 12 34 567"
                 format="+ 38 (###) ### ## ##"
-                {...field}
+                value={field.value}
+                onValueChange={(values) =>
+                  field.onChange(values.formattedValue)
+                }
               />
             )}
-            name="phone"
-            control={control}
           />
 
           {errors.phone && (
@@ -202,8 +212,8 @@ const CareerForm = () => {
 
         <button
           type="submit"
-          disabled={!errors}
-          className="ml-auto mr-0 block text-3xl font-medium uppercase text-white xl:text-[32px]/[38px]"
+          disabled={isSubmitting}
+          className="text-decoration ml-auto mr-0 block text-3xl font-medium uppercase text-white xl:text-[32px]/[38px]"
         >
           Send
         </button>

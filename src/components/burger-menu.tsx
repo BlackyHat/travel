@@ -32,7 +32,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-5 top-11 text-sm/[17px] font-normal uppercase tracking-widest text-white"
+            className="text-decoration absolute right-5 top-11 text-sm/[17px] font-normal uppercase tracking-widest text-white"
           >
             close
           </button>
@@ -42,7 +42,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
                 <li key={el}>
                   <a
                     href={`#${el}`}
-                    className="hover:font-outline focus:font-outline active:font-outline duration-250 p-1 text-lg/[22px] font-normal capitalize tracking-widest"
+                    className="text-decoration p-1 text-lg/[22px] font-normal capitalize tracking-widest"
                     title={`Navigate to ${el}-section`}
                     onClick={onClose}
                   >

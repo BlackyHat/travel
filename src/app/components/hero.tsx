@@ -1,7 +1,8 @@
-import Header from "../../components/header";
+import Header from "@/components/header";
 
 import { splitString } from "@/lib/splitString";
 import content from "@/lib/content/hero.json";
+import ScrollLink from "@/components/ui/scroll-link";
 
 const Hero = () => {
   const { places, journey, title, desc } = content;
@@ -35,12 +36,12 @@ const Hero = () => {
             <p className="text-justify text-sm/5 font-extralight max-md:mb-6 max-md:max-w-[280px] md:mb-7 md:w-full md:text-justify md:text-base/5 xl:text-lg/6">
               {desc}
             </p>
-            <a
+            <ScrollLink
               href="#contacts"
               className="link mx-auto flex items-center justify-center py-[18px] text-center text-lg font-bold uppercase leading-10 max-md:max-w-[280px] md:order-last md:w-full md:py-[14px] md:text-lg/[22px] xl:py-4 xl:text-[32px]/[39px]"
             >
               join now
-            </a>
+            </ScrollLink>
           </section>
         </div>
       </div>
