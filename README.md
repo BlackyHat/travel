@@ -16,8 +16,8 @@ Project structure:
 
 ##
 
-![Hero section](assets/11.png) ![Services section](assets/22.png)
-![Services section](assets/33.png) ![Contacts section](assets/44.png)
+![Hero section](assets/11.webp) ![Services section](assets/22.webp)
+![Services section](assets/33.webp) ![Contacts section](assets/44.webp)
 
 ##
 
