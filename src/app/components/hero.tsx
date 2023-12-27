@@ -37,6 +37,7 @@ const Hero = () => {
               {desc}
             </p>
             <ScrollLink
+              title="join now"
               href="#contacts"
               className="link mx-auto flex items-center justify-center py-[18px] text-center text-lg font-bold uppercase leading-10 max-md:max-w-[280px] md:order-last md:w-full md:py-[14px] md:text-lg/[22px] xl:py-4 xl:text-[32px]/[39px]"
             >

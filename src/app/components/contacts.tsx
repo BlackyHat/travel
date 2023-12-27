@@ -16,7 +16,11 @@ const Contacts = () => {
             <ul>
               {phones.contacts.map((contact) => (
                 <li key={contact} className="text-right">
-                  <a className="text-decoration" href={`tel:${contact}`}>
+                  <a
+                    className="text-decoration inline-block"
+                    href={`tel:${contact}`}
+                    title={contact}
+                  >
                     {contact}
                   </a>
                 </li>
@@ -30,7 +34,11 @@ const Contacts = () => {
             <ul>
               {emails.contacts.map((contact) => (
                 <li key={contact} className="text-right">
-                  <a className="text-decoration" href={`mailto:${contact}`}>
+                  <a
+                    className="text-decoration inline-block"
+                    href={`mailto:${contact}`}
+                    title={contact}
+                  >
                     {contact}
                   </a>
                 </li>
@@ -47,7 +55,11 @@ const Contacts = () => {
             <ul>
               {socials.contacts.map(({ name, link }) => (
                 <li key={name} className="text-left xl:text-right">
-                  <a className="text-decoration" href={link}>
+                  <a
+                    className="text-decoration inline-block"
+                    href={link}
+                    title={name}
+                  >
                     {name}
                   </a>
                 </li>

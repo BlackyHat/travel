@@ -7,11 +7,15 @@ import content from "@/lib/content/career.json";
 import { PatternFormat } from "react-number-format";
 import { twMerge } from "tailwind-merge";
 
+const phonePattern = /^\+\s\d{2}\s\(\d{3}\)\s\d{2}\s\d{2}\s\d{3}$/;
+
 const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
   email: z.string().email().min(5, { message: "Incorrect email" }).trim(),
   position: z.string().min(5, { message: "Incorrect position" }).trim(),
-  phone: z.string().min(20, { message: "Incorrect phone" }).trim(),
+  phone: z.string().refine((phone) => phonePattern.test(phone), {
+    message: "Incorrect phone",
+  }),
   message: z.string().trim().optional(),
   isConfirm: z.string({
     required_error: "Confirm is required",
@@ -39,9 +43,9 @@ const CareerForm = () => {
       setTimeout(() => {
         localStorage.setItem("career-form", JSON.stringify(data));
         toast.success("Thank you. We will contact you.");
-        reset();
         resolve();
       }, 1000);
+      reset();
     });
   };
 
@@ -148,15 +152,16 @@ const CareerForm = () => {
           </label>
           <Controller
             name="phone"
-            control={control}
             defaultValue=""
+            control={control}
             render={({ field }) => (
               <PatternFormat
                 id="phone"
+                name={field.name}
                 aria-invalid={errors.phone ? "true" : "false"}
                 className={variables.input}
                 placeholder="+ 38 (097) 12 34 567"
-                format="+ 38 (###) ### ## ##"
+                format="+ 38 (###) ## ## ###"
                 value={field.value}
                 onValueChange={(values) =>
                   field.onChange(values.formattedValue)
@@ -212,6 +217,7 @@ const CareerForm = () => {
 
         <button
           type="submit"
+          title="send"
           disabled={isSubmitting}
           className="text-decoration ml-auto mr-0 block text-3xl font-medium uppercase text-white xl:text-[32px]/[38px]"
         >

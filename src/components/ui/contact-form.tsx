@@ -17,7 +17,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
   });
@@ -107,6 +107,8 @@ const ContactForm = () => {
 
       <button
         type="submit"
+        disabled={isSubmitting}
+        title="send"
         className="text-decoration ml-auto mr-0 block text-3xl font-medium uppercase text-white"
       >
         Send

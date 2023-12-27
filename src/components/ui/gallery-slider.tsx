@@ -8,14 +8,17 @@ const GallerySlider = () => {
   const { slides } = content;
 
   const settings = {
+    accessibility: true,
+    dots: false,
+    arrows: true,
     className: "center",
     centerMode: true,
     infinite: true,
     centerPadding: "0",
     slidesToShow: 3,
-    speed: 500,
-    arrows: true,
-    dots: false,
+    slidesToScroll: 1,
+    vertical: false,
+    verticalSwiping: false,
     nextArrow: <SliderArrow type="next" />,
     prevArrow: <SliderArrow type="prev" />,
     responsive: [
@@ -24,7 +27,6 @@ const GallerySlider = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          initialSlide: 0,
           vertical: true,
           verticalSwiping: true,
           arrows: false,

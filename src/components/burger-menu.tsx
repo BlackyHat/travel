@@ -43,7 +43,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
                 <li key={el}>
                   <ScrollLink
                     href={`#${el}`}
-                    className="text-decoration p-1 text-lg/[22px] font-normal capitalize tracking-widest"
+                    className="text-decoration inline-block p-1 text-lg/[22px] font-normal capitalize tracking-widest"
                     title={`Navigate to ${el}-section`}
                     onClose={onClose}
                   >
