@@ -10,7 +10,6 @@ import SectionHeading from "@/components/section-heading";
 const Services = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { title, trips } = content;
-
   const variants = [
     "services-slide-1",
     "services-slide-2",
@@ -38,6 +37,8 @@ const Services = () => {
       <div className="md:grid-cols-hero md:grid md:gap-5 xl:grid-cols-2 xl:gap-5">
         <div className="relative mb-3 h-[213px] w-full md:mb-6 md:h-[370px] xl:h-[429px]">
           <Image
+            key={trips[currentSlide].image}
+            className="animate-fade duration-500 ease-in-out"
             src={`/images/${trips[currentSlide].image}.webp`}
             alt={trips[currentSlide].title}
             sizes="(max-width: 767px) 100vw, (min-width: 768px) 60vw, (min-width: 1280px) 608px"

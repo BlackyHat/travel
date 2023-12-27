@@ -15,6 +15,15 @@ const config: Config = {
       },
     },
     extend: {
+      animation: {
+        fade: "fadeOut 2s ease-in-out",
+      },
+      keyframes: {
+        fadeOut: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
       gridTemplateColumns: {
         hero: "1fr 230px",
         "hero-xl": "1fr 294px",
