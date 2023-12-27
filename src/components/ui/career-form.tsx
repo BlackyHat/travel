@@ -53,9 +53,9 @@ const CareerForm = () => {
     label:
       "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-[13px]/6 font-extralight text-white outline-none",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none",
     textarea:
-      "bg-input-background placeholder:text-input-placeholder md:h-full block w-full border-0 px-2 text-xs/6 font-extralight text-white outline-none resize-none overflow-hidden max-md:mb-4",
+      "bg-input-background placeholder:text-input-placeholder md:h-full block w-full border-0 px-2 text-input text-white outline-none resize-none overflow-hidden max-md:mb-4",
     error:
       "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };

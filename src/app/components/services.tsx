@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 import content from "@/lib/content/services.json";
 import Section from "@/components/section";

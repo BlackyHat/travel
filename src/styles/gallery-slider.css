@@ -1,15 +1,15 @@
 .slick-slider {
   overflow: hidden;
 }
-.slick-track {
-  transition: all 0.3s ease;
+.slide {
+  transition: transform 500ms ease-in-out;
 }
 
-.slick-slide > div {
-  height: 190px;
-  transition: transform 0.5s linear;
-}
 @media screen and (max-width: 767px) {
+  .slick-slide > div {
+    height: 190px;
+    width: 100%;
+  }
   .slick-list {
     margin: -12px 0;
   }
@@ -23,21 +23,21 @@
 
 @media screen and (min-width: 768px) {
   .slick-list {
-    margin: 0 -12px;
+    margin: 0 -86px;
   }
   .slick-slide {
-    padding: 12px 0;
-  }
-  .slick-slider .slick-slide {
+    padding: 0 86px;
     border: none;
+    box-shadow: 0px 0px 100px 0px rgba(9, 20, 16, 0.5);
   }
 
-  .slide {
-    @media screen and (min-width: 768px) {
-      box-shadow: 0px 0px 100px 0px rgba(9, 20, 16, 0.5);
-    }
+  .slick-slide > div {
+    width: 120px;
+    height: 88px;
+    opacity: 0.75;
   }
-  .slick-active:not(.slick-center) .slide::after {
+
+  .slick-slide:not(.slick-center) .slide::after {
     content: "";
     position: absolute;
     top: 0;
@@ -50,41 +50,26 @@
 
   .slick-track {
     min-height: 294px !important;
-    display: flex !important;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-  }
-
-  .slick-slider .slick-active .slide {
-    transform-origin: left;
-    transform: scale(0.51, 0.46);
-    opacity: 0.75;
-  }
-
-  .slick-center + .slick-active .slide {
-    transform-origin: right !important;
   }
 
   .slick-slider .slick-center .slide {
-    transform-origin: center !important;
-    opacity: 1 !important;
-    transform: scale(1.7, 1.55) !important;
+    opacity: 1;
+    transform: scale(3.46, 3.35);
   }
 }
 
 @media screen and (min-width: 1280px) {
   .slick-slide > div {
-    height: 278px;
+    width: 313px;
+    height: 225px;
   }
   .slick-track {
     min-height: 430px !important;
   }
 
-  .slick-slider .slick-active .slide {
-    transform: scale(0.74, 0.83);
-  }
-
   .slick-slider .slick-center .slide {
-    transform: scale(1.45, 1.55) !important;
+    transform: scale(1.9) !important;
   }
 }

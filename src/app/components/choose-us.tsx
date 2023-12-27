@@ -1,4 +1,3 @@
-import React from "react";
 import CareerForm from "@/components/ui/career-form";
 
 const ChooseUs = () => {

@@ -1,8 +1,8 @@
 "use client";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
+import * as z from "zod";
 import { twMerge } from "tailwind-merge";
 
 const formSchema = z.object({
@@ -23,18 +23,23 @@ const ContactForm = () => {
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    localStorage.setItem("form-contact", JSON.stringify(data));
-    reset();
-    toast.success("Feedback was sended.");
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        localStorage.setItem("form-contact", JSON.stringify(data));
+        toast.success("Feedback was sended.");
+        resolve();
+      }, 1000);
+      reset();
+    });
   };
 
   const variables = {
     label:
       "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-[13px]/6 font-extralight text-white outline-none",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none",
     textarea:
-      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-xs/6 font-extralight text-white outline-none mb-4 xl:mb-6",
+      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-input text-white outline-none mb-4 xl:mb-6",
     error:
       "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };

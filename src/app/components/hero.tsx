@@ -1,7 +1,6 @@
-import Header from "@/components/header";
-
 import { splitString } from "@/lib/splitString";
 import content from "@/lib/content/hero.json";
+import Header from "@/components/header";
 import ScrollLink from "@/components/ui/scroll-link";
 
 const Hero = () => {

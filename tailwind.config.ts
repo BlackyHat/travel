@@ -45,6 +45,7 @@ const config: Config = {
         "input-placeholder": "rgba(var(--color-input-placeholder) / .2)",
       },
       fontSize: {
+        input: ["0.813rem", { lineHeight: "1.5rem", fontWeight: "100" }],
         "4xl-accent": [
           "2.5rem",
           {

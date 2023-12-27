@@ -1,8 +1,7 @@
-import React from "react";
 import content from "@/lib/content/contacts.json";
-import ContactForm from "../../components/ui/contact-form";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
+import ContactForm from "@/components/ui/contact-form";
 
 const Contacts = () => {
   const { title, phones, emails, socials } = content;

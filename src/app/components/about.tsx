@@ -1,6 +1,5 @@
-import React from "react";
-import content from "@/lib/content/about.json";
 import { splitString } from "@/lib/splitString";
+import content from "@/lib/content/about.json";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
 

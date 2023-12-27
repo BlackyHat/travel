@@ -1,9 +1,7 @@
-import React from "react";
-
-import CareerForm from "@/components/ui/career-form";
 import content from "@/lib/content/career.json";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
+import CareerForm from "@/components/ui/career-form";
 
 const Career = () => {
   const { title, desc, features_title, features } = content;
