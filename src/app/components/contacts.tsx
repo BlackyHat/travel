@@ -66,7 +66,7 @@ const Contacts = () => {
             </ul>
           </li>
         </ul>
-        {/* <ContactForm /> */}
+        <ContactForm />
       </div>
     </Section>
   );

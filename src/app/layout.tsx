@@ -7,6 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CarpTravel",
+  viewport:
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
   description:
     "Uncover beautiful parts of the Carpathians with unforgettable trips",
   metadataBase: new URL("https://carpatians-trips.vercel.app/"),
@@ -21,6 +23,25 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/og-image.jpg",
+      },
+    ],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon/favicon-light.ico" },
+      new URL(
+        "/favicon/favicon-light.ico",
+        "https://carpatians-trips.vercel.app/",
+      ),
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/favicon/favicon-light.ico",
+        href: "/favicon/favicon-light.ico",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/favicon/favicon-dark.ico",
+        href: "/favicon/favicon-dark.ico",
       },
     ],
   },
