@@ -22,6 +22,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navElements }) => {
   return (
     <>
       <button
+        type="button"
         onClick={onOpen}
         className="text-sm font-normal uppercase tracking-[1.4px] text-white md:hidden"
       >
