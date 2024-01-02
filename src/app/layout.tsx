@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "CarpTravel",
   description:
     "Uncover beautiful parts of the Carpathians with unforgettable trips",
-  metadataBase: new URL("http://localhost"),
+  metadataBase: new URL("https://carpatians-trips.vercel.app/"),
   openGraph: {
     type: "website",
     title: "CarpTravel",
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Uncover beautiful parts of the Carpathians with unforgettable trips",
     siteName: "CarpTravel",
+    url: "https://carpatians-trips.vercel.app/",
     images: [
       {
         url: "/images/og-image.jpg",
