@@ -24,25 +24,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  icons: {
-    icon: [
-      { url: "/favicon/favicon-light.ico" },
-      new URL(
-        "/favicon/favicon-light.ico",
-        "https://carpatians-trips.vercel.app/",
-      ),
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/favicon/favicon-light.ico",
-        href: "/favicon/favicon-light.ico",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/favicon/favicon-dark.ico",
-        href: "/favicon/favicon-dark.ico",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
