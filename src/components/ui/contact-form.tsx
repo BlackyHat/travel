@@ -45,7 +45,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} name="contact-form">
       <div className="md:grid md:grid-cols-contacts-reverse md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
         <div className="relative">
           <label

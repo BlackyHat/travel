@@ -51,9 +51,9 @@ const CareerForm = () => {
 
   const variables = {
     label:
-      "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
+      "block text-xs/6  font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none mt-3 md:mt-1",
     textarea:
       "bg-input-background placeholder:text-input-placeholder md:h-full block w-full border-0 px-2 text-input text-white outline-none resize-none overflow-hidden max-md:mb-4",
     error:
@@ -65,6 +65,7 @@ const CareerForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-4"
+        name="career-form"
       >
         <p className="ml-auto mr-0 w-[64%] text-left text-sm font-extralight max-md:mb-6 md:col-span-2 md:ml-0 md:w-[50%] md:text-[13px]/5 md:max-xl:pr-14 md:max-xl:pt-[92px] xl:pr-14 xl:text-lg/6">
           {formTitle}
@@ -75,17 +76,16 @@ const CareerForm = () => {
               variables.label,
               errors.fullName ? "text-rose-500" : "",
             )}
-            htmlFor="fullName_candidate"
           >
             Full name:
+            <input
+              {...register("fullName")}
+              id="fullName_candidate"
+              placeholder="Full name..."
+              aria-invalid={errors.fullName ? "true" : "false"}
+              className={variables.input}
+            />
           </label>
-          <input
-            {...register("fullName")}
-            id="fullName_candidate"
-            placeholder="Full name..."
-            aria-invalid={errors.fullName ? "true" : "false"}
-            className={variables.input}
-          />
           {errors.fullName && (
             <p role="alert" className={variables.error}>
               {errors.fullName.message}
@@ -98,17 +98,15 @@ const CareerForm = () => {
               variables.label,
               errors.email ? "text-rose-500" : "",
             )}
-            htmlFor="email_candidate"
           >
             E-mail:
+            <input
+              {...register("email")}
+              placeholder="E-mail..."
+              aria-invalid={errors.email ? "true" : "false"}
+              className={variables.input}
+            />
           </label>
-          <input
-            {...register("email")}
-            id="email_candidate"
-            placeholder="E-mail..."
-            aria-invalid={errors.email ? "true" : "false"}
-            className={variables.input}
-          />
           {errors.email && (
             <p role="alert" className={variables.error}>
               {errors.email.message}
@@ -122,17 +120,15 @@ const CareerForm = () => {
               variables.label,
               errors.position ? "text-rose-500" : "",
             )}
-            htmlFor="position_candidate"
           >
             Position:
+            <input
+              {...register("position")}
+              placeholder="Movie maker..."
+              aria-invalid={errors.email ? "true" : "false"}
+              className={variables.input}
+            />
           </label>
-          <input
-            {...register("position")}
-            id="position_candidate"
-            placeholder="Movie maker..."
-            aria-invalid={errors.email ? "true" : "false"}
-            className={variables.input}
-          />
           {errors.position && (
             <p role="alert" className={variables.error}>
               {errors.position.message}
@@ -146,31 +142,28 @@ const CareerForm = () => {
               variables.label,
               errors.phone ? "text-rose-500" : "",
             )}
-            htmlFor="phone_candidate"
           >
             Phone:
+            <Controller
+              name="phone"
+              defaultValue=""
+              control={control}
+              render={({ field }) => (
+                <PatternFormat
+                  name={field.name}
+                  type="text"
+                  aria-invalid={errors.phone ? "true" : "false"}
+                  className={variables.input}
+                  placeholder="+ 38 (097) 12 34 567"
+                  format="+ 38 (###) ## ## ###"
+                  value={field.value}
+                  onValueChange={(values) =>
+                    field.onChange(values.formattedValue)
+                  }
+                />
+              )}
+            />
           </label>
-          <Controller
-            name="phone"
-            defaultValue=""
-            control={control}
-            render={({ field }) => (
-              <PatternFormat
-                id="phone_candidate"
-                name={field.name}
-                type="text"
-                aria-invalid={errors.phone ? "true" : "false"}
-                className={variables.input}
-                placeholder="+ 38 (097) 12 34 567"
-                format="+ 38 (###) ## ## ###"
-                value={field.value}
-                onValueChange={(values) =>
-                  field.onChange(values.formattedValue)
-                }
-              />
-            )}
-          />
-
           {errors.phone && (
             <p role="alert" className={variables.error}>
               {errors.phone.message}
@@ -179,34 +172,27 @@ const CareerForm = () => {
         </div>
 
         <div className="relative overflow-hidden md:order-4 md:col-start-2 md:row-span-4 md:row-start-2 md:h-full">
-          <label className={variables.label} htmlFor="message_candidate">
+          <label className={variables.label}>
             Message:
+            <textarea
+              {...register("message")}
+              rows={8}
+              placeholder=""
+              aria-invalid={errors.message ? "true" : "false"}
+              className={variables.textarea}
+            />
           </label>
-
-          <textarea
-            {...register("message")}
-            rows={8}
-            id="message_candidate"
-            placeholder=""
-            aria-invalid={errors.message ? "true" : "false"}
-            className={variables.textarea}
-          />
         </div>
 
         <div className="relative flex items-start gap-x-2">
-          <input
-            type="checkbox"
-            {...register("isConfirm")}
-            id="isConfirm"
-            defaultValue="false"
-            aria-invalid={errors.isConfirm ? "true" : "false"}
-            className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"
-          />
-
-          <label
-            className="text-left text-xs/[22px] font-extralight hover:cursor-pointer focus:cursor-pointer"
-            htmlFor="isConfirm"
-          >
+          <label className="text-left text-xs/[22px] font-extralight hover:cursor-pointer focus:cursor-pointer">
+            <input
+              type="checkbox"
+              {...register("isConfirm")}
+              defaultValue="false"
+              aria-invalid={errors.isConfirm ? "true" : "false"}
+              className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"
+            />
             {formAgree}
           </label>
           {errors.isConfirm && (
