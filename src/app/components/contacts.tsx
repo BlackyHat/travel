@@ -10,14 +10,14 @@ const Contacts = () => {
     <Section id="contacts" className="contacts-section font-normal">
       <SectionHeading title={title} className="mb-9 xl:mb-[72px]" />
       <div className="xl:grid xl:grid-cols-2 xl:gap-5">
-        <ul className="xl:grid-rows-contacts-xl max-md:mb-2 md:grid md:grid-cols-2 md:gap-6 md:max-xl:mb-16 xl:auto-rows-auto xl:grid-cols-1 xl:items-start xl:justify-items-center">
-          <li className="grid-cols-contacts grid gap-5 max-md:mb-6 xl:grid-cols-2">
+        <ul className="max-md:mb-2 md:grid md:grid-cols-2 md:gap-6 md:max-xl:mb-16 xl:auto-rows-auto xl:grid-cols-1 xl:grid-rows-contacts-xl xl:items-start xl:justify-items-center">
+          <li className="grid grid-cols-contacts gap-5 max-md:mb-6 xl:grid-cols-2">
             <ul>
               {phones.contacts.map((contact) => (
                 <li key={contact} className="text-right">
                   <a
                     className="text-decoration inline-block"
-                    href={`tel:${contact}`}
+                    href={`tel:${contact.replace(/\s/g, "")}`}
                     title={contact}
                   >
                     {contact}
@@ -29,7 +29,7 @@ const Contacts = () => {
               {phones.caption}
             </p>
           </li>
-          <li className="grid-cols-contacts grid gap-5 max-md:mb-6 md:max-xl:order-last xl:grid-cols-2">
+          <li className="grid grid-cols-contacts gap-5 max-md:mb-6 md:max-xl:order-last xl:grid-cols-2">
             <ul>
               {emails.contacts.map((contact) => (
                 <li key={contact} className="text-right">
@@ -47,7 +47,7 @@ const Contacts = () => {
               {emails.caption}
             </p>
           </li>
-          <li className="grid-cols-contacts md:max-xl:grid-cols-contacts-reverse grid gap-5 md:max-xl:row-span-2 xl:grid-cols-2 xl:self-end">
+          <li className="grid grid-cols-contacts gap-5 md:max-xl:row-span-2 md:max-xl:grid-cols-contacts-reverse xl:grid-cols-2 xl:self-end">
             <p className="text-right text-xs/6 font-extralight xl:order-last xl:text-left">
               {socials.caption}
             </p>
