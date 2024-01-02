@@ -75,12 +75,13 @@ const CareerForm = () => {
               variables.label,
               errors.fullName ? "text-rose-500" : "",
             )}
-            htmlFor="fullName"
+            htmlFor="fullName_candidate"
           >
             Full name:
           </label>
           <input
             {...register("fullName")}
+            id="fullName_candidate"
             placeholder="Full name..."
             aria-invalid={errors.fullName ? "true" : "false"}
             className={variables.input}
@@ -97,12 +98,13 @@ const CareerForm = () => {
               variables.label,
               errors.email ? "text-rose-500" : "",
             )}
-            htmlFor="email"
+            htmlFor="email_candidate"
           >
             E-mail:
           </label>
           <input
             {...register("email")}
+            id="email_candidate"
             placeholder="E-mail..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
@@ -120,12 +122,13 @@ const CareerForm = () => {
               variables.label,
               errors.position ? "text-rose-500" : "",
             )}
-            htmlFor="position"
+            htmlFor="position_candidate"
           >
             Position:
           </label>
           <input
             {...register("position")}
+            id="position_candidate"
             placeholder="Movie maker..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
@@ -143,7 +146,7 @@ const CareerForm = () => {
               variables.label,
               errors.phone ? "text-rose-500" : "",
             )}
-            htmlFor="phone"
+            htmlFor="phone_candidate"
           >
             Phone:
           </label>
@@ -153,7 +156,9 @@ const CareerForm = () => {
             control={control}
             render={({ field }) => (
               <PatternFormat
+                id="phone_candidate"
                 name={field.name}
+                type="text"
                 aria-invalid={errors.phone ? "true" : "false"}
                 className={variables.input}
                 placeholder="+ 38 (097) 12 34 567"
@@ -174,13 +179,14 @@ const CareerForm = () => {
         </div>
 
         <div className="relative overflow-hidden md:order-4 md:col-start-2 md:row-span-4 md:row-start-2 md:h-full">
-          <label className={variables.label} htmlFor="message">
+          <label className={variables.label} htmlFor="message_candidate">
             Message:
           </label>
 
           <textarea
             {...register("message")}
             rows={8}
+            id="message_candidate"
             placeholder=""
             aria-invalid={errors.message ? "true" : "false"}
             className={variables.textarea}
@@ -191,6 +197,7 @@ const CareerForm = () => {
           <input
             type="checkbox"
             {...register("isConfirm")}
+            id="isConfirm"
             defaultValue="false"
             aria-invalid={errors.isConfirm ? "true" : "false"}
             className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"

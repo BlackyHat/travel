@@ -55,8 +55,11 @@
   }
 
   .slick-slider .slick-center .slide {
-    opacity: 1;
     transform: scale(3.46, 3.35);
+  }
+
+  .slick-slider .slick-center > div {
+    opacity: 1;
   }
 }
 
