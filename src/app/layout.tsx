@@ -17,8 +17,11 @@ export const metadata: Metadata = {
     description:
       "Uncover beautiful parts of the Carpathians with unforgettable trips",
     siteName: "CarpTravel",
-    url: "https://carpatians-trips.vercel.app/",
-    images: [{ url: "/public/images/og-image.jpg" }],
+    images: [
+      {
+        url: "/images/og-image.jpg",
+      },
+    ],
   },
   icons: {
     icon: [
