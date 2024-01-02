@@ -58,6 +58,8 @@ const Contacts = () => {
                     className="text-decoration inline-block"
                     href={link}
                     title={name}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
                   >
                     {name}
                   </a>

@@ -35,11 +35,11 @@ const ContactForm = () => {
 
   const variables = {
     label:
-      "mb-3 block text-xs/6 md:mb-1 font-extralight leading-normal tracking-[0.2em] text-white",
+      "block text-xs/6 font-extralight leading-normal tracking-[0.2em] text-white",
     input:
-      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none",
+      "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none mt-3 md:mt-1",
     textarea:
-      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-input text-white outline-none mb-4 xl:mb-6",
+      "resize-none overflow-hidden bg-input-background placeholder:text-input-placeholder block w-full border-0 px-2 text-input text-white outline-none mb-4 xl:mb-6 mt-3 md:mt-1",
     error:
       "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };
@@ -53,16 +53,15 @@ const ContactForm = () => {
               variables.label,
               errors.fullName ? "text-rose-500" : "",
             )}
-            htmlFor="fullName"
           >
             Full name:
+            <input
+              {...register("fullName")}
+              placeholder="Full name..."
+              aria-invalid={errors.fullName ? "true" : "false"}
+              className={variables.input}
+            />
           </label>
-          <input
-            {...register("fullName")}
-            placeholder="Full name..."
-            aria-invalid={errors.fullName ? "true" : "false"}
-            className={variables.input}
-          />
           {errors.fullName && (
             <p role="alert" className={variables.error}>
               {errors.fullName.message}
@@ -75,7 +74,6 @@ const ContactForm = () => {
               variables.label,
               errors.email ? "text-rose-500" : "",
             )}
-            htmlFor="email"
           >
             E-mail:
           </label>
@@ -93,17 +91,16 @@ const ContactForm = () => {
         </div>
 
         <div className="relative md:max-xl:row-span-3 xl:col-span-2">
-          <label className={variables.label} htmlFor="message">
+          <label className={variables.label}>
             Message:
+            <textarea
+              {...register("message")}
+              rows={8}
+              placeholder=""
+              aria-invalid={errors.message ? "true" : "false"}
+              className={variables.textarea}
+            />
           </label>
-
-          <textarea
-            {...register("message")}
-            rows={8}
-            placeholder=""
-            aria-invalid={errors.message ? "true" : "false"}
-            className={variables.textarea}
-          />
         </div>
       </div>
 

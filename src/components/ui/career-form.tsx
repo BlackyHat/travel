@@ -55,7 +55,7 @@ const CareerForm = () => {
     input:
       "bg-input-background placeholder:text-input-placeholder max-md:mb-6 block w-full border-0 px-2 text-input text-white outline-none mt-3 md:mt-1",
     textarea:
-      "bg-input-background placeholder:text-input-placeholder md:h-full block w-full border-0 px-2 text-input text-white outline-none resize-none overflow-hidden max-md:mb-4",
+      "bg-input-background placeholder:text-input-placeholder md:h-full  block w-full border-0 px-2 text-input text-white outline-none resize-none overflow-hidden max-md:mb-4 mt-3 md:mt-1",
     error:
       "alert absolute -bottom-6 right-0 text-xs/6 font-extralight tracking-widest text-rose-500",
   };
@@ -151,7 +151,6 @@ const CareerForm = () => {
                 <PatternFormat
                   name={field.name}
                   type="tel"
-                  inputMode="tel"
                   aria-invalid={errors.phone ? "true" : "false"}
                   className={variables.input}
                   placeholder="+ 38 (097) 12 34 567"
@@ -172,7 +171,7 @@ const CareerForm = () => {
         </div>
 
         <div className="relative overflow-hidden md:order-4 md:col-start-2 md:row-span-4 md:row-start-2 md:h-full">
-          <label className={variables.label}>
+          <label className={twMerge(variables.label, "block md:h-full")}>
             Message:
             <textarea
               {...register("message")}
