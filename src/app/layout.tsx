@@ -2,13 +2,12 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 import "@/styles/globals.css";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CarpTravel",
-  viewport:
-    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  applicationName: "CarpTravel",
   description:
     "Uncover beautiful parts of the Carpathians with unforgettable trips",
   metadataBase: new URL("https://carpatians-trips.vercel.app/"),

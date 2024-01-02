@@ -79,7 +79,6 @@ const CareerForm = () => {
             Full name:
             <input
               {...register("fullName")}
-              id="fullName"
               placeholder="Full name..."
               aria-invalid={errors.fullName ? "true" : "false"}
               className={variables.input}

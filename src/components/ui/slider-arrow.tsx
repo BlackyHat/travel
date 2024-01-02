@@ -8,17 +8,24 @@ interface SliderArrowProps {
 
 const SliderArrow: FC<SliderArrowProps> = ({ onClick, type }) => {
   return (
-    <button
-      type="button"
+    <div
       className={twMerge(
-        "absolute bottom-4 z-10 text-[33px]/10 font-thin uppercase md:w-[120px] xl:bottom-0 xl:w-[313px]",
-        type === "next" ? "right-0 text-left" : "left-0 text-right",
+        "absolute bottom-4 z-10 md:w-[120px] xl:bottom-0 xl:w-[313px]",
+        type === "next" ? "right-0" : "left-0",
       )}
-      onClick={onClick}
-      title={type}
     >
-      {type}
-    </button>
+      <button
+        type="button"
+        className={twMerge(
+          "text-decoration inline-block text-[33px]/10 font-thin uppercase",
+          type === "next" ? "ml-0 mr-auto" : "ml-auto mr-0",
+        )}
+        onClick={onClick}
+        title={type}
+      >
+        {type}
+      </button>
+    </div>
   );
 };
 

@@ -1,8 +1,8 @@
 import { splitString } from "@/lib/splitString";
 import content from "@/lib/content/hero.json";
-import Header from "@/components/header";
-import ScrollLink from "@/components/ui/scroll-link";
 import Section from "@/components/section";
+import ScrollLink from "@/components/ui/scroll-link";
+import Header from "@/components/header";
 
 const Hero = () => {
   const { places, journey, title, desc } = content;
@@ -12,7 +12,11 @@ const Hero = () => {
   const [firstWordTitle, restOfTitle] = splitString(title, 1);
 
   return (
-    <Section id="hero" className="hero-section">
+    <Section
+      id="hero"
+      className="hero-section mx-auto"
+      containerStyles="py-0 md:py-0 xl:py-0 pb-14 md:pb-16 xl:pb-[104px]"
+    >
       <Header />
 
       <section className="xl:pt-18 pt-9 md:grid md:grid-cols-hero md:gap-x-12 md:pt-16 xl:grid-cols-hero-xl">

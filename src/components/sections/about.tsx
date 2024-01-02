@@ -12,7 +12,7 @@ const About = () => {
 
   return (
     <Section id="about" className="about-section">
-      <div className="md:grid-cols-hero xl:grid-cols-hero-xl md:grid md:gap-4 md:max-xl:mb-16 xl:mb-[72px] xl:w-[922px]">
+      <div className="md:grid md:grid-cols-hero md:gap-4 md:max-xl:mb-16 xl:mb-[72px] xl:w-[922px] xl:grid-cols-hero-xl">
         <SectionHeading title={title} className="max-md:mb-2" />
         <div className="xs:self-start md:row-span-2 xl:pt-4">
           <p className="text-left font-extralight max-md:mb-5 max-md:w-[180px] md:mb-4 xl:mb-6">
