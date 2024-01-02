@@ -65,27 +65,27 @@ const CareerForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-4"
-        name="career-form"
       >
         <p className="ml-auto mr-0 w-[64%] text-left text-sm font-extralight max-md:mb-6 md:col-span-2 md:ml-0 md:w-[50%] md:text-[13px]/5 md:max-xl:pr-14 md:max-xl:pt-[92px] xl:pr-14 xl:text-lg/6">
           {formTitle}
         </p>
         <div className="relative">
           <label
+            htmlFor="fullName"
             className={twMerge(
               variables.label,
               errors.fullName ? "text-rose-500" : "",
             )}
           >
             Full name:
-            <input
-              {...register("fullName")}
-              id="fullName_candidate"
-              placeholder="Full name..."
-              aria-invalid={errors.fullName ? "true" : "false"}
-              className={variables.input}
-            />
           </label>
+          <input
+            {...register("fullName")}
+            id="fullName"
+            placeholder="Full name..."
+            aria-invalid={errors.fullName ? "true" : "false"}
+            className={variables.input}
+          />
           {errors.fullName && (
             <p role="alert" className={variables.error}>
               {errors.fullName.message}
@@ -185,14 +185,19 @@ const CareerForm = () => {
         </div>
 
         <div className="relative flex items-start gap-x-2">
-          <label className="text-left text-xs/[22px] font-extralight hover:cursor-pointer focus:cursor-pointer">
-            <input
-              type="checkbox"
-              {...register("isConfirm")}
-              defaultValue="false"
-              aria-invalid={errors.isConfirm ? "true" : "false"}
-              className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"
-            />
+          <input
+            type="checkbox"
+            {...register("isConfirm")}
+            id="isConfirm"
+            defaultValue="false"
+            aria-invalid={errors.isConfirm ? "true" : "false"}
+            className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"
+          />
+
+          <label
+            className="text-left text-xs/[22px] font-extralight hover:cursor-pointer focus:cursor-pointer"
+            htmlFor="isConfirm"
+          >
             {formAgree}
           </label>
           {errors.isConfirm && (
