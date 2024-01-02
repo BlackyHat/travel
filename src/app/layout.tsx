@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon/favicon-light.ico" },
+      new URL("/favicon/favicon-light.ico", "https://example.com"),
       {
         media: "(prefers-color-scheme: light)",
         url: "/favicon/favicon-light.ico",

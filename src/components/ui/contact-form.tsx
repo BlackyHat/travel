@@ -46,7 +46,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="md:grid-cols-contacts-reverse md:grid md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
+      <div className="md:grid md:grid-cols-contacts-reverse md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
         <div className="relative">
           <label
             className={twMerge(
@@ -59,7 +59,6 @@ const ContactForm = () => {
           </label>
           <input
             {...register("fullName")}
-            id="fullName"
             placeholder="Full name..."
             aria-invalid={errors.fullName ? "true" : "false"}
             className={variables.input}
@@ -82,7 +81,6 @@ const ContactForm = () => {
           </label>
           <input
             {...register("email")}
-            id="email"
             placeholder="E-mail..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
@@ -102,7 +100,6 @@ const ContactForm = () => {
           <textarea
             {...register("message")}
             rows={8}
-            id="message"
             placeholder=""
             aria-invalid={errors.message ? "true" : "false"}
             className={variables.textarea}

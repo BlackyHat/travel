@@ -81,7 +81,6 @@ const CareerForm = () => {
           </label>
           <input
             {...register("fullName")}
-            id="fullName"
             placeholder="Full name..."
             aria-invalid={errors.fullName ? "true" : "false"}
             className={variables.input}
@@ -104,7 +103,6 @@ const CareerForm = () => {
           </label>
           <input
             {...register("email")}
-            id="email"
             placeholder="E-mail..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
@@ -128,7 +126,6 @@ const CareerForm = () => {
           </label>
           <input
             {...register("position")}
-            id="position"
             placeholder="Movie maker..."
             aria-invalid={errors.email ? "true" : "false"}
             className={variables.input}
@@ -156,7 +153,6 @@ const CareerForm = () => {
             control={control}
             render={({ field }) => (
               <PatternFormat
-                id="phone"
                 name={field.name}
                 aria-invalid={errors.phone ? "true" : "false"}
                 className={variables.input}
@@ -185,7 +181,6 @@ const CareerForm = () => {
           <textarea
             {...register("message")}
             rows={8}
-            id="message"
             placeholder=""
             aria-invalid={errors.message ? "true" : "false"}
             className={variables.textarea}
@@ -196,7 +191,6 @@ const CareerForm = () => {
           <input
             type="checkbox"
             {...register("isConfirm")}
-            id="isConfirm"
             defaultValue="false"
             aria-invalid={errors.isConfirm ? "true" : "false"}
             className="career-checkbox relative h-[22px] w-[22px] shrink-0 appearance-none self-center border border-white bg-none p-1 hover:cursor-pointer focus:cursor-pointer md:self-start xl:h-6 xl:w-6"
