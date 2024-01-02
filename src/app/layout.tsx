@@ -13,9 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "CarpTravel",
+    locale: "en_US",
     description:
       "Uncover beautiful parts of the Carpathians with unforgettable trips",
     siteName: "CarpTravel",
+    url: "https://carpatians-trips.vercel.app/",
     images: [{ url: "/public/images/og-image.jpg" }],
   },
   icons: {
