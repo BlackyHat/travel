@@ -17,7 +17,7 @@ const SliderArrow: FC<SliderArrowProps> = ({ onClick, type }) => {
       <button
         type="button"
         className={twMerge(
-          "text-decoration inline-block text-[33px]/10 font-thin uppercase",
+          "text-decoration block text-[33px]/10 font-thin uppercase",
           type === "next" ? "ml-0 mr-auto" : "ml-auto mr-0",
         )}
         onClick={onClick}

@@ -1,10 +1,10 @@
-import Hero from "@/components/sections/hero";
-import About from "@/components/sections/about";
-import Services from "@/components/sections/services";
-import Contacts from "@/components/sections/contacts";
-import Career from "@/components/sections/career";
-import ChooseUs from "@/components/sections/choose-us";
-import Gallery from "@/components/sections/gallery";
+import Hero from "@/sections/hero";
+import About from "@/sections/about";
+import Services from "@/sections/services";
+import Contacts from "@/sections/contacts";
+import Career from "@/sections/career";
+import ChooseUs from "@/sections/choose-us";
+import Gallery from "@/sections/gallery";
 
 export default function Home() {
   return (
