@@ -24,10 +24,10 @@ const Career = () => {
           {features_title}
         </h3>
 
-        <ul className="ml-0 max-md:w-[64%]">
+        <ul className="ml-0 space-y-4 max-md:w-[64%]">
           {features.map(({ caption, overview }) => (
-            <li className="mb-4 xl:grid xl:grid-cols-2 xl:gap-6" key={caption}>
-              <h4 className="mb-2 text-right text-sm font-normal md:text-base/5">
+            <li className=" xl:grid xl:grid-cols-2 xl:gap-6" key={caption}>
+              <h4 className="text-right text-sm font-normal max-xl:mb-2 md:text-base/5">
                 {caption}
               </h4>
               <p className="text-right text-xs/5 font-extralight xl:text-left xl:text-xs/6">
