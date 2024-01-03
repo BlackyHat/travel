@@ -1,31 +1,59 @@
 "use client";
+import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import useFormPersist from "react-hook-form-persist";
 import { toast } from "react-hot-toast";
 import * as z from "zod";
 import { twMerge } from "tailwind-merge";
+
+const FORM_NAME = "form-contact";
 
 const formSchema = z.object({
   fullName: z.string().min(3, { message: "Incorrect name" }).trim(),
   email: z.string().email().min(5, { message: "Incorrect email" }).trim(),
   message: z.string().trim().optional(),
 });
+
 type ContactFormValues = z.infer<typeof formSchema>;
 
+const initFormData = {
+  fullName: "",
+  email: "",
+  message: "",
+};
+
 const ContactForm = () => {
+  const [formData, setFormData] = useState(() => {
+    try {
+      const storedFormData = window.sessionStorage.getItem(FORM_NAME);
+      return storedFormData ? JSON.parse(storedFormData) : initFormData;
+    } catch (error) {
+      return initFormData;
+    }
+  });
+
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
+    defaultValues: formData,
+  });
+
+  useFormPersist(FORM_NAME, {
+    watch,
+    setValue,
   });
 
   const onSubmit = (data: ContactFormValues) => {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
-        localStorage.setItem("form-contact", JSON.stringify(data));
         toast.success("Feedback was sended.");
         resolve();
       }, 1000);
@@ -45,7 +73,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} name="contact-form">
+    <form onSubmit={handleSubmit(onSubmit)} name={FORM_NAME}>
       <div className="md:grid md:grid-cols-contacts-reverse md:gap-x-5 md:gap-y-7 xl:grid-cols-2 xl:gap-x-6 xl:gap-y-10">
         <div className="relative">
           <label

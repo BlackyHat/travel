@@ -1,11 +1,15 @@
 "use client";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import * as z from "zod";
+import useFormPersist from "react-hook-form-persist";
 import { toast } from "react-hot-toast";
-import content from "@/lib/content/career.json";
+import * as z from "zod";
 import { PatternFormat } from "react-number-format";
 import { twMerge } from "tailwind-merge";
+import content from "@/lib/content/career.json";
+
+const FORM_NAME = "career-form";
 
 const phonePattern = /^\+\s\d{2}\s\(\d{3}\)\s\d{2}\s\d{2}\s\d{3}$/;
 
@@ -25,23 +29,46 @@ const formSchema = z.object({
 
 type CareerFormValues = z.infer<typeof formSchema>;
 
+const initFormData = {
+  fullName: "",
+  email: "",
+  position: "",
+  phone: "",
+  message: "",
+  isConfirm: "",
+};
 const CareerForm = () => {
   const { formAgree, formTitle } = content;
+  const [formData, setFormData] = useState(() => {
+    try {
+      const storedFormData = window.sessionStorage.getItem(FORM_NAME);
+      return storedFormData ? JSON.parse(storedFormData) : initFormData;
+    } catch (error) {
+      return initFormData;
+    }
+  });
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
+    setValue,
     control,
     formState: { errors, isSubmitting },
   } = useForm<CareerFormValues>({
     resolver: zodResolver(formSchema),
+    defaultValues: formData,
+  });
+
+  useFormPersist(FORM_NAME, {
+    watch,
+    setValue,
   });
 
   const onSubmit = (data: CareerFormValues) => {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
-        localStorage.setItem("career-form", JSON.stringify(data));
         toast.success("Thank you. We will contact you.");
         resolve();
       }, 1000);
@@ -65,6 +92,7 @@ const CareerForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-4"
+        name={FORM_NAME}
       >
         <p className="ml-auto mr-0 w-[64%] text-left text-sm font-extralight max-md:mb-6 md:col-span-2 md:ml-0 md:w-[50%] md:text-[13px]/5 md:max-xl:pr-14 md:max-xl:pt-[92px] xl:pr-14 xl:text-lg/6">
           {formTitle}
