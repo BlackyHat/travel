@@ -47,11 +47,16 @@ const Services = () => {
         </div>
         <div className="flex h-[368px] flex-col justify-start xl:grid xl:grid-cols-2 xl:gap-5">
           <p
-            style={{ paddingTop: `${currentSlide * 48}px` }}
+            style={{
+              paddingTop: `${
+                currentSlide < 3 ? currentSlide * 44 : currentSlide * 44 + 24
+              }px`,
+            }}
             className="flex-none text-right text-xs/6 font-extralight tracking-[0.2em] max-md:mb-6 md:text-left"
           >
             {trips[currentSlide].slogan}
           </p>
+
           <ul className=" flex flex-none flex-col items-start gap-4 md:order-first md:max-xl:mb-6">
             {trips.map((trip, idx) => (
               <li key={trip.title}>
